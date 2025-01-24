@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macario Car - Seu Próximo Veículo Está Aqui</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-section {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form .submit-button {
+            background: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-form .submit-button:hover {
+            background: #0056b3;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #007bff;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .contact-container {
+                max-width: 90%;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 40px 0;
+            }
+
+            .contact-container {
+                padding: 0 15px;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 20px;
+            }
+
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+                padding: 10px;
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+
+            .contact-form .submit-button {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+
+            .contact-info h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .contact-info i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 30px 0;
+            }
+
+            .contact-container {
+                padding: 0 10px;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+                padding: 8px;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .contact-info h3 {
+                font-size: 18px;
+            }
+
+            .contact-info p {
+                font-size: 13px;
+                gap: 8px;
+            }
+
+            .contact-info i {
+                font-size: 16px;
+            }
+        }
+
+        /* Melhorando responsividade geral da página */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .modal-content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-images {
+                height: 250px;
+            }
+
+            .specs-highlights {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .modal-buttons .cta-button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 20px;
+            }
+
+            .section-subtitle {
+                font-size: 14px;
+            }
+
+            .modal-header h2 {
+                font-size: 18px;
+            }
+
+            .price-tag {
+                font-size: 20px;
+            }
+
+            .specs-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-item {
+                padding: 10px;
+            }
+
+            .spec-item i {
+                font-size: 18px;
+            }
+
+            .feature-item {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+        }
+
+        .header {
+            background: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-menu {
+                padding: 15px;
+            }
+
+            .nav-link {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Macario Car</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#veiculos" class="nav-link">Veículos</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="exclusive-tag">Macario Car</span>
+                <h1>Seu Próximo Veículo Está Aqui</h1>
+                <p class="hero-subtitle">Carros e Motos Selecionados com Procedência</p>
+                <ul class="hero-benefits">
+                    <li><i class="fas fa-check-circle"></i> Documentação 100% Legal</li>
+                    <li><i class="fas fa-check-circle"></i> Veículos Revisados</li>
+                    <li><i class="fas fa-check-circle"></i> Melhor Avaliação do Seu Usado</li>
+                </ul>
+                <div class="hero-buttons">
+                    <a href="#veiculos" class="cta-button primary">Ver Veículos Disponíveis</a>
+                    <a href="https://wa.me/5511999999999" class="cta-button whatsapp">
+                        <i class="fab fa-whatsapp"></i> Falar com Vendedor
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Banner de Destaque -->
+    <section class="highlight-banner">
+        <div class="section-title">
+            <h2>Avalie Seu Veículo</h2>
+            <p>Oferecemos a melhor avaliação para seu carro ou moto</p>
+        </div>
+        <div class="highlight-content">
+            <div class="highlight-text">
+                <h3>Negociação Justa e Transparente</h3>
+                <p>Na Macario Car, você tem a garantia da melhor avaliação do mercado. Trabalhamos com todos os tipos de veículos e oferecemos pagamento à vista.</p>
+                <ul class="highlight-benefits">
+                    <li><i class="fas fa-check"></i> Avaliação Gratuita</li>
+                    <li><i class="fas fa-check"></i> Pagamento à Vista</li>
+                    <li><i class="fas fa-check"></i> Melhor Preço do Mercado</li>
+                </ul>
+                <a href="#contato" class="cta-button secondary">Avaliar Agora</a>
+            </div>
+            <div class="highlight-image">
+                <img src="./images/car.jpg" alt="Avaliação de Veículos">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Por Que Escolher a Macario Car?</h2>
+            <p>Sua satisfação é nossa prioridade</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3>Variedade de Veículos</h3>
+                <p>Grande variedade de carros e motos para todos os gostos e necessidades.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Carros Nacionais e Importados</li>
+                    <li><i class="fas fa-check"></i> Motos de Todas as Cilindradas</li>
+                    <li><i class="fas fa-check"></i> Veículos Selecionados</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Negociação Facilitada</h3>
+                <p>Compramos seu veículo com as melhores condições do mercado.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Avaliação Justa</li>
+                    <li><i class="fas fa-check"></i> Pagamento à Vista</li>
+                    <li><i class="fas fa-check"></i> Documentação Grátis</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Documentação 100% Legal</h3>
+                <p>Todos os nossos veículos estão com a documentação em dia.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Procedência Garantida</li>
+                    <li><i class="fas fa-check"></i> Documentos em Dia</li>
+                    <li><i class="fas fa-check"></i> Transferência Imediata</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Veículos Revisados</h3>
+                <p>Todos os veículos passam por rigorosa inspeção antes da venda.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Revisão Completa</li>
+                    <li><i class="fas fa-check"></i> Mecânica Verificada</li>
+                    <li><i class="fas fa-check"></i> Garantia de Procedência</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de Urgência -->
+    <section class="urgency-banner">
+        <div class="urgency-content">
+            <div class="urgency-tag">
+                <i class="fas fa-clock"></i>
+                <span>Novos Veículos Toda Semana</span>
+            </div>
+            <h2>Não Perca as Novidades</h2>
+            <p>Veículos exclusivos com preços imperdíveis</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="hours">12</span>
+                    <span>Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">30</span>
+                    <span>Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span>Segundos</span>
+                </div>
+            </div>
+            <ul class="urgency-benefits">
+                <li><i class="fas fa-tag"></i> Preços Especiais</li>
+                <li><i class="fas fa-handshake"></i> Negociação Direta</li>
+                <li><i class="fas fa-car"></i> Pronta Entrega</li>
+            </ul>
+            <div class="urgency-buttons">
+                <a href="#contato" class="cta-button primary pulse">Ver Disponíveis</a>
+                <a href="#contato" class="cta-button secondary">Falar com Vendedor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Veículos em Destaque -->
+    <section id="veiculos" class="featured-vehicles">
+        <div class="section-title">
+            <h2>Veículos em Destaque</h2>
+            <p>Confira nossa seleção especial de veículos</p>
+        </div>
+        <div class="vehicles-grid">
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="./images/punto.jpg" alt="Carro 1">
+                    <span class="vehicle-tag">Novo</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3>Punto</h3>
+                    <p class="vehicle-year">2012</p>
+                    <ul class="vehicle-details">
+                        <li><i class="fas fa-tachometer-alt"></i> 120.000 km</li>
+                        <li><i class="fas fa-gas-pump"></i> 1.4 flex 8 válvulas</li>
+                        <li><i class="fas fa-cog"></i> Câmbio manual de 5 marchas</li>
+                    </ul>
+                    <div class="vehicle-price">
+                        <span class="price-label">Por apenas</span>
+                        <span class="price-value">R$ R$32.900,00</span>
+                    </div>
+                    <div class="vehicle-buttons">
+                        <a href="#contato" class="cta-button primary">Tenho Interesse</a>
+                        <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button class="cta-button secondary" onclick="openModal('modalPunto')">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="./images/golf.jpg" alt="Toyota Corolla XEI">
+                    <span class="vehicle-tag">Destaque</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3>Golf</h3>
+                    <p class="vehicle-year">2015</p>
+                    <ul class="vehicle-details">
+                        <li><i class="fas fa-tachometer-alt"></i> 120.000</li>
+                        <li><i class="fas fa-gas-pump"></i> 2.0 TURBO 220cv</li>
+                        <li><i class="fas fa-cog"></i> Automático</li>
+                    </ul>
+                    <div class="vehicle-price">
+                        <span class="price-label">Por apenas</span>
+                        <span class="price-value">R$ 109.900,00</span>
+                    </div>
+                    <div class="vehicle-buttons">
+                        <a href="#contato" class="cta-button primary">Tenho Interesse</a>
+                        <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button class="cta-button secondary" onclick="openModal('modalGolf')">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="./images/cruze.jpg" alt="Jeep Compass Limited">
+                    <span class="vehicle-tag">Oferta</span>
+                </div>
+                <div class="vehicle-info">
+                    <h3>Cruze</h3>
+                    <p class="vehicle-year">2014</p>
+                    <ul class="vehicle-details">
+                        <li><i class="fas fa-tachometer-alt"></i>  113.000 km</li>
+                        <li><i class="fas fa-gas-pump"></i> Motor 1.8</li>
+                        <li><i class="fas fa-cog"></i> Câmbio manual de 6 marchas</li>
+                    </ul>
+                    <div class="vehicle-price">
+                        <span class="price-label">Por apenas</span>
+                        <span class="price-value">R$ 57.900</span>
+                    </div>
+                    <div class="vehicle-buttons">
+                        <a href="#contato" class="cta-button primary">Tenho Interesse</a>
+                        <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button class="cta-button secondary" onclick="openModal('modalCruze')">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-all-container">
+            <a href="#" class="cta-button primary">Ver Todos os Veículos</a>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="contact-section">
+        <div class="section-title">
+            <h2>Entre em Contato</h2>
+            <p>Estamos prontos para te atender!</p>
+        </div>
+        <div class="contact-container">
+            <form id="contact-form" class="contact-form" onsubmit="sendToWhatsApp(event)">
+                <input type="text" id="fullName" placeholder="Nome Completo" required>
+                <select id="vehicleType" required>
+                    <option value="">Tipo de Veículo</option>
+                    <option value="carro">Carro</option>
+                    <option value="moto">Moto</option>
+                </select>
+                <select id="intention" required>
+                    <option value="">Deseja comprar ou vender?</option>
+                    <option value="comprar">Comprar</option>
+                    <option value="vender">Vender</option>
+                </select>
+                <textarea id="message" placeholder="Descreva sua solicitação (modelo do veículo, ano, etc)" required></textarea>
+                <button type="submit" class="submit-button">
+                    <i class="fab fa-whatsapp"></i> Enviar no WhatsApp
+                </button>
+            </form>
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Gorvernador Roberto Silveira, 135, Teresópolis, Brazil</p>
+                <p><i class="fab fa-whatsapp"></i> (21) 99112-7155</p>
+                <p><i class="fab fa-whatsapp"></i> (21) 97455-8731</p>
+                <p><i class="far fa-clock"></i> Segunda a Sábado: 9h às 18h</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Macario Car</h3>
+                <p>Conectando você ao carro dos seus sonhos!</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/macariolavajato" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/macariocar2024/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5521991127155" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sexta: 9h às 18h</p>
+                <p>Sábado: 9h às 13h</p>
+                <p>Domingo: Fechado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Rua Gorvernador Roberto Silveira, 135, Teresópolis, Brazil</p>
+                <p>WhatsApp 1: (21) 99112-7155</p>
+                <p>WhatsApp 2: (21) 97455-8731</p>
+                <!-- <p>Email: contato@macariocar.com.br</p> -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Macario Car. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modais de Detalhes dos Carros -->
+    <div id="modalPunto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img src="./images/punto.jpg" alt="Fiat Punto Itália">
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <h2>FIAT / PUNTO ITÁLIA</h2>
+                        <div class="price-tag">R$ 32.900,00</div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="specs-highlights">
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span>2012</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>120.000 km</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>1.4 Flex</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Manual</span>
+                            </div>
+                        </div>
+                        <div class="features-list">
+                            <h3>Características</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">☑️ Radio Original Fiat</div>
+                                <div class="feature-item">☑️ Bancos em tecido</div>
+                                <div class="feature-item">☑️ Computador de bordo</div>
+                                <div class="feature-item">☑️ Direção Hidráulica</div>
+                                <div class="feature-item">☑️ Ar condicionado</div>
+                                <div class="feature-item">☑️ Vidros elétricos</div>
+                                <div class="feature-item">☑️ Travas elétricas</div>
+                                <div class="feature-item">☑️ Revisado</div>
+                                <div class="feature-item">☑️ Pneus novos</div>
+                                <div class="feature-item">☑️ Regulagem nos bancos</div>
+                                <div class="feature-item">☑️ Manuel e Chave cópia</div>
+                            </div>
+                        </div>
+                        <div class="modal-buttons">
+                            <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                            </a>
+                            <!-- <a href="#contato" class="cta-button primary">Tenho Interesse</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalGolf" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img src="./images/golf.jpg" alt="Volkswagen Golf">
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <h2>VOLKSWAGEN / GOLF</h2>
+                        <div class="price-tag">R$ 109.900,00</div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="specs-highlights">
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span>2015</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>120.000 km</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>2.0 TURBO</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Automático</span>
+                            </div>
+                        </div>
+                        <div class="features-list">
+                            <h3>Características</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">☑️ Multimida</div>
+                                <div class="feature-item">☑️ Bancos em couro</div>
+                                <div class="feature-item">☑️ Computador de bordo</div>
+                                <div class="feature-item">☑️ Direção hidráulica</div>
+                                <div class="feature-item">☑️ Ar condicionado digital dual zone</div>
+                                <div class="feature-item">☑️ Vidros elétricos</div>
+                                <div class="feature-item">☑️ Travas elétricas</div>
+                                <div class="feature-item">☑️ Revisado</div>
+                                <div class="feature-item">☑️ Pneus novos</div>
+                                <div class="feature-item">☑️ Regulagem nos bancos</div>
+                            </div>
+                        </div>
+                        <div class="modal-buttons">
+                            <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                            </a>
+                            <a href="#contato" class="cta-button primary">Tenho Interesse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCruze" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img src="./images/cruze.jpg" alt="Chevrolet Cruze">
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <h2>CHEVROLET / CRUZE LT</h2>
+                        <div class="price-tag">R$ 57.900,00</div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="specs-highlights">
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span>2014</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>113.000 km</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>1.8</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Manual</span>
+                            </div>
+                        </div>
+                        <div class="features-list">
+                            <h3>Características</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">☑️ Radio Original Chevrolet</div>
+                                <div class="feature-item">☑️ Bancos em tecido</div>
+                                <div class="feature-item">☑️ Computador de bordo</div>
+                                <div class="feature-item">☑️ Direção Elétrica</div>
+                                <div class="feature-item">☑️ Ar condicionado digital dual zone</div>
+                                <div class="feature-item">☑️ Vidros elétricos</div>
+                                <div class="feature-item">☑️ Travas elétricas</div>
+                                <div class="feature-item">☑️ Revisado</div>
+                                <div class="feature-item">☑️ Pneus novos</div>
+                                <div class="feature-item">☑️ Regulagem nos bancos</div>
+                                <div class="feature-item">☑️ Manuel e Chave cópia</div>
+                                <div class="feature-item">☑️ GNV 5 geração</div>
+                            </div>
+                        </div>
+                        <div class="modal-buttons">
+                            <a href="https://wa.me/5521991127155" class="cta-button whatsapp">
+                                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                            </a>
+                            <a href="#contato" class="cta-button primary">Tenho Interesse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function openModal(modalId) {
+            var modal = document.getElementById(modalId);
+            modal.style.display = "block";
+            // Força um reflow para garantir que a transição funcione
+            modal.offsetHeight;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            var modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Fecha o modal quando clica fora dele
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        var closeModals = document.getElementsByClassName("close-modal");
+        for (var i = 0; i < closeModals.length; i++) {
+            closeModals[i].addEventListener("click", function() {
+                var modalId = this.closest('.modal').id;
+                closeModal(modalId);
+            });
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const vehicleType = document.getElementById('vehicleType').value;
+            const intention = document.getElementById('intention').value;
+            const message = document.getElementById('message').value;
+            
+            const text = `Olá! Me chamo ${fullName}.\n\n` +
+                        `Estou interessado em *${intention}* um *${vehicleType}*.\n\n` +
+                        `Solicitação: ${message}`;
+            
+            const whatsappNumber = "5521991127155";
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function toggleMenu() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
